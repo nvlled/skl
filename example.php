@@ -3,10 +3,11 @@
 
 include "skl.php";
 
+skl_database("skl");
 skl_hostname("localhost");
 skl_username("nvlled");
+
 skl_pagesize(3);
-skl_database("skl");
 skl_exec("
     create table if not exists messages(
         id integer auto_increment primary key,
@@ -17,6 +18,8 @@ skl_exec("
 
 $pagenum = $_REQUEST["page"]+0;
 skl_pagenum($pagenum);
+
+$newId = NULL;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = @$_POST["action"];
@@ -29,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             insert into messages(username, contents)
             values(?, ?)
         ", $username, $contents);
+        $newId = skl_insert_id();
     }
 }
 
@@ -36,6 +40,10 @@ $msgcount = skl_get("select count(*) from messages");
 $pagecount = $msgcount / skl_pagesize();
 
 ?>
+
+<?php if ($newId != NULL) { ?>
+<p>last insert ID: <?=$newId?></p>
+<?php } ?>
 
 <h2>Messages</h2>
 <ul>
