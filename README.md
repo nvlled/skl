@@ -37,6 +37,12 @@ skl_username("your_username");
 skl_password("your_password");
 ```
 
+Or in one line:
+```php
+skl_connect("localhost", "your_username", "your_password", "your_dbname");
+```
+
+
 ## creating tables
 Creating tables can be done by using skl_exec:
 ```php

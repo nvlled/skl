@@ -3,9 +3,11 @@
 
 include "skl.php";
 
-skl_database("skl");
-skl_hostname("localhost");
-skl_username("nvlled");
+//skl_database("skl");
+//skl_hostname("localhost");
+//skl_username("nvlled");
+//skl_password("");
+skl_connect("localhost", "nvlled", "", "skl");
 
 skl_pagesize(3);
 skl_exec("

@@ -68,9 +68,13 @@ function verify_connection() {
     }
 }
 
-function skl_connect($options) {
+function skl_connect($host, $username, $password, $database) {
     global $dboptions;
-    $dboption = $options;
+    $dboptions["hostname"] = $host;
+    $dboptions["username"] = $username;
+    $dboptions["password"] = $password;
+    $dboptions["database"] = $database;
+    verify_connection();
 }
 
 function skl_username($val) {
