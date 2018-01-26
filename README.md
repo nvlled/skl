@@ -71,8 +71,7 @@ To delete use the skl_exec:
 ```php
 $id = 1;
 skl_exec("delete * from messages"); // delete all rows from the table
-skl_exec("delete * from messages"); // delete a row from the table with id = $id
-skl_exec("delete * from message where id = ?", $id);
+skl_exec("delete * from message where id = ?", $id); // delete a row from the table with id = $id
 ```
 Insertion is also done with skl_exec:
 ```php
