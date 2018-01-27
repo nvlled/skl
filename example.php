@@ -18,7 +18,7 @@ skl_exec("
     )
 ");
 
-$pagenum = $_REQUEST["page"]+0;
+$pagenum = @$_REQUEST["page"]+0;
 skl_pagenum($pagenum);
 
 $newId = NULL;
