@@ -82,7 +82,7 @@ function skl_username($val) {
     $dboptions["username"] = $val;
 }
 
-function skl_password() {
+function skl_password($val) {
     global $dboptions;
     $dboptions["password"] = $val;
 }
